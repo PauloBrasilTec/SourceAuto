@@ -48,8 +48,12 @@
       <template v-slot:default="{ items, page, pageCount, prevPage, nextPage }">
         <v-row style="padding: 1%;" v-if="items.length > 0 && loading== false">
           <v-col v-for="(item, i) in items" :key="i" cols="12" sm="6" xl="2">
+
+
             <v-card elevation="24" color="#fec6cf" link hover max-height="500px" max-width="300px">
               <v-sheet border>
+                <v-btn  variant="plain" style="margin: 1%;" icon="mdi-cart-plus"></v-btn>
+                <v-btn variant="plain" color="red" style="margin: 1%;" icon="mdi-heart"></v-btn>
                 <v-img width="300" height="300" Object-fit="cover" on-load="" v-if="item.raw.src != undefined " :gradient="`to top right, rgba(255, 255, 255, .1), rgba(${item.raw.color}, .15)`"
                 :src="item.raw.src"></v-img>
                 <v-img  v-else width="300" height="300" :gradient="`to top right, rgba(255, 255, 255, .1), rgba(${item.raw.color}, .15)`"
