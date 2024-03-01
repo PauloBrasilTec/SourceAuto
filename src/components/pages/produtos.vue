@@ -2,7 +2,7 @@
 <!-- input que dispara a busca quando muda o valor -->
 <input-custom disabled style="display: none;" v-model="this.dados_external.pesquisa" :onchange="find_produto()" label="Digite aqui o que você procura..." type="search" ></input-custom>
   <v-card>
-    <datagrid-custom-produtos :loading="this.loading" :items="produtos" width="100%"></datagrid-custom-produtos>
+    <datagrid-custom-produtos @reload_datagrid="find_produto()" :loading="this.loading" :items="produtos" width="100%"></datagrid-custom-produtos>
   </v-card>
 </template>
 

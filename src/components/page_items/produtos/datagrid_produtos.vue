@@ -28,6 +28,11 @@
               </v-menu>
             </v-col>
 
+
+            <v-col class="float-left" cols="1" >
+              <v-btn @click="reload()" icon="mdi-reload"></v-btn>
+            </v-col>
+
             <v-col class="float-left" cols="1" >
               <v-autocomplete :disabled="this.items.length <= 12" density="comfortable" hide-details label=""  :items="['12', '30', '60', '70', '80', '90', '100']"
                 v-model="itemsPerPage"></v-autocomplete>
@@ -99,6 +104,10 @@ export default {
         { title: 'Ano' },
         { title: 'Categoria' },
         ],
-  }),
+  }),methods: {
+     reload(){
+      this.$emit('reload_datagrid',{});
+    }
+  }
 }
 </script>
