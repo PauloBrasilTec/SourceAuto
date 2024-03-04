@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar style="background: #ff8e16;background: -webkit-linear-gradient(to right, #FF4B2B, #ff8e16);background: linear-gradient(to right, #FF4B2B, #ff8e16);" class="teste-dash" elevation="20" :height="120">
+    <v-toolbar class="custom-dash" elevation="20" :height="120">
         <v-container fluid ma-0 pa-0 fill-height >
           <v-card-actions class="flex justify-center">
             <v-img class="ml-left" src="/src/assets/logo.png" max-width="120px"> </v-img>
@@ -10,13 +10,17 @@
 
             <v-app-bar-nav-icon class="hidden-md-and-up"></v-app-bar-nav-icon>
 
-            <v-btn class="hidden-sm-and-down" icon>
-              <v-icon>mdi-heart</v-icon>
-            </v-btn>
+            <v-badge :content="100" :dot="true">
+              <v-btn class="hidden-sm-and-down" icon>
+                <v-icon>mdi-heart</v-icon>
+              </v-btn>
+            </v-badge>
 
-            <v-btn class="hidden-sm-and-down" icon>
-              <v-icon>mdi-cart</v-icon>
-            </v-btn>
+            <v-badge  :content="100" :dot="true">
+              <v-btn class="hidden-sm-and-down" icon>
+                <v-icon>mdi-cart</v-icon>
+              </v-btn>
+            </v-badge>
 
             <div class="hidden-sm-and-down" >
 
@@ -129,15 +133,9 @@ export default {
 }
 </script>
 
-
 <style>
-teste-dash{
-
-  background: red;
-
-
+.custom-dash {
+  background: linear-gradient(to right, #FF4B2B, #ff8e16) !important;
 }
-
-
 
 </style>

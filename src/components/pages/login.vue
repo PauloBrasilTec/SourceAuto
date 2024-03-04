@@ -3,22 +3,39 @@
     <v-card-actions class="flex justify-center">
         <div ref="container" class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
-                <h1>Criar uma conta</h1>
-                <input type="text" placeholder="Nome" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Senha" />
-                <button>Cadastrar</button>
-            </form>
+
+
+			<v-form ref="form_cadastro">
+				<h1>Criar uma conta</h1>
+				<input-custom required="true" style="width: 100%;display: inline;flex: none;"  label="Nome" ></input-custom>
+				<input-custom type="email"  required="true" style="width: 100%;display: inline;flex: none;"  label="Email" ></input-custom>
+				<input-custom type="password" required="true" style="width: 100%;display: inline;flex: none;" label="Senha" ></input-custom>
+				<div class="d-flex flex-column">
+					<v-btn class="mt-4" block @click="validate(this.$refs.form_cadastro)">
+						Cadastrar
+					</v-btn>
+				</div>
+			</v-form>
+
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
-                <h1>Login</h1>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Senha" />
-                <a href="#">Esqueceu sua senha?</a>
-                <button>Entrar</button>
-            </form>
+
+			<v-form @submit.prevent ref="form_login">
+				<h1>Login</h1>
+				<input-custom type="email"  required="true" style="width: 100%;display: inline;flex: none;"  label="Email" ></input-custom>
+
+				<input-custom type="password" required="true" style="width: 100%;display: inline;flex: none;" label="Senha" ></input-custom>
+				
+				<div class="d-flex flex-column">
+					<a href="#">Esqueceu sua senha?</a>
+					<v-btn type="submit" class="mt-4" block @click="validate(this.$refs.form_login)">
+						Entrar
+					</v-btn>
+				</div>
+			</v-form>
+
+
+            
         </div>
         <div class="overlay-container">
             <div class="overlay">
@@ -56,12 +73,16 @@ export default {
         }else{
             container.classList.remove("right-panel-active");
         }        
-    }
+    },async validate (form) {
+        const { valid } = await form.validate()
+		if(valid){
+
+		}
+
+        },
   }
 }
 </script>
-
-
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
@@ -209,9 +230,7 @@ input {
 }
 
 .overlay {
-	background: #ff8e16;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #ff8e16);
-	background: linear-gradient(to right, #FF4B2B, #ff8e16);
+	background: linear-gradient(to right, #FF4B2B, #ff8e16) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

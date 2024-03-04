@@ -39,6 +39,24 @@
         density="compact"
     ></v-text-field>
 
+
+    <div class="flex justify-start" v-else-if="this.type == 'password'">
+        <v-text-field class="grid justify-items-end ..."
+            :label="this.label" 
+            :type="show1 ? 'text' : 'password'"
+            v-model="this.value"
+            :disabled="this.readonly"
+            :rules="[rules.all]"
+            :counter="this.counter"
+            density="compact"
+            variant="solo-filled"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="show1 = !show1"
+        >
+    </v-text-field>
+        
+    </div>
+
     <v-text-field  v-else
         :label="this.label" 
         :v-model="this.value"
@@ -69,15 +87,35 @@ export default {
     data() {
         return {
             value: '',
+            show1: false,
+            show2: true,
             rules: {
                 all: v => {
+
+                    var errors = [];
+                    var result =  true;
+
                     if(!utils.methods.is_null(this.required) && this.required == "true" ){
-                        return !!v || "Preencha o campo acima !";
+                        if(! !!v){
+                            errors.push("Preencha o campo acima !");
+                        }
                     }
+
                     if(!utils.methods.is_null(this.counter)){
-                        return  v?.length <= this.counter || 'Numero de caracteres excedido !';
+                        if(!v?.length <= this.counter){
+                            errors.push('Numero de caracteres excedido !')
+                        }
                     }
-                    return true;
+
+                    if(!utils.methods.is_null(this.type)  && this.type == "email" ){
+                        var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+                        if(!regex.test(v)){
+                            errors.push('Email inválido !')
+                        }
+                    }
+
+                    return errors.length > 0 ? errors[0] : true
+
                 }
             },
             defaults: {
@@ -85,10 +123,8 @@ export default {
                 elevation: 10,
                 }
             },
-
-
-            
         };
-    }
+    },methods: {
+  }
 }
 </script>
