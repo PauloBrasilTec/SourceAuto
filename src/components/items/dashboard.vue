@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar elevation="20" color="#ff8e16" :height="120">
+    <v-toolbar style="background: #ff8e16;background: -webkit-linear-gradient(to right, #FF4B2B, #ff8e16);background: linear-gradient(to right, #FF4B2B, #ff8e16);" class="teste-dash" elevation="20" :height="120">
         <v-container fluid ma-0 pa-0 fill-height >
           <v-card-actions class="flex justify-center">
             <v-img class="ml-left" src="/src/assets/logo.png" max-width="120px"> </v-img>
@@ -128,3 +128,16 @@ export default {
   }
 }
 </script>
+
+
+<style>
+teste-dash{
+
+  background: red;
+
+
+}
+
+
+
+</style>
