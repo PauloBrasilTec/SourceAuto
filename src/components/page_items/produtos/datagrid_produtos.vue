@@ -55,10 +55,21 @@
           <v-col v-for="(item, i) in items" :key="i" cols="12" sm="3" xl="2">
             <v-card elevation="24" color="#fec6cf" link hover max-height="500px" max-width="300px">
               <v-sheet border>
+
                 <v-btn  variant="plain" style="margin: 1%;" icon="mdi-cart-plus"></v-btn>
-                <v-btn variant="plain" color="red" style="margin: 1%;" icon="mdi-heart"></v-btn>
+
+                <button-custom 
+                  @ChangeChecked=""
+                  icon_principal = 'mdi-heart-outline'
+                  icon_variante = 'mdi-heart'
+                  color="red" 
+                  type_button="toggle" >
+                </button-custom>
+
                 <v-img min-width="150" min-height="150" width="300" height="300" Object-fit="cover" on-load="" v-if="item.raw.src != undefined " :gradient="`to top right, rgba(255, 255, 255, .1), rgba(${item.raw.color}, .15)`"
-                :src="item.raw.src"></v-img>
+                :src="item.raw.src">
+              
+                </v-img>
                 <v-img  v-else width="300" height="300" :gradient="`to top right, rgba(255, 255, 255, .1), rgba(${item.raw.color}, .15)`"
                 src="/src/assets/produto-nao-encontrado.png"></v-img>
                 <v-list-item :title="item.raw.nome" lines="two" density="comfortable">
@@ -94,6 +105,8 @@ export default {
     loading: Boolean
   },
   data: () => ({
+    item: {},
+    selection: [],
     search: '',
     itemsPerPage: 12,
     filter: [
@@ -105,6 +118,14 @@ export default {
   }),methods: {
      reload(){
       this.$emit('reload_datagrid',{});
+    },setFavorite(data,item){
+
+      console.log(data,item)
+
+      if(data){
+
+      }
+
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <dash-board style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;" @send_dados_external="receiveDataDash"></dash-board>
+    <dash-board class="dash-board"  @send_dados_external="receiveDataDash"></dash-board>
     <div style="padding-top: 140px;"> <!-- Adjust the padding-top value to match the height of your dash-board -->
       <router-view :dados_external="this.dados_external"></router-view>
     </div>
@@ -30,9 +30,8 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px; /* Adjust width as needed */
-  height: 100%; /* Fix to full height of the viewport */
-  background-color: #f0f0f0; /* Example background color */
+  right: 0;
+  z-index: 1000;
 }
 
 </style>

@@ -88,7 +88,6 @@ export default {
         return {
             value: '',
             show1: false,
-            show2: true,
             rules: {
                 all: v => {
 
