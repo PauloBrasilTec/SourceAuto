@@ -5,11 +5,6 @@
         <div class="form-container sign-up-container">
             <form action="#">
                 <h1>Criar uma conta</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
                 <input type="text" placeholder="Nome" />
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Senha" />
@@ -19,11 +14,6 @@
         <div class="form-container sign-in-container">
             <form action="#">
                 <h1>Login</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Senha" />
                 <a href="#">Esqueceu sua senha?</a>
@@ -48,14 +38,6 @@
     </v-card-actions>
 </v-container>
 
-
-
-
-
-
-
-
-
 </template>
 
 
@@ -65,7 +47,6 @@ import axios from 'axios';
 export default {
     data () {
       return {
-        class_container : ''
       }
   },methods: {
     change_btn(btn) {
@@ -228,9 +209,9 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #ff8e16;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #ff8e16);
+	background: linear-gradient(to right, #FF4B2B, #ff8e16);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
